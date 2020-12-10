@@ -57,10 +57,11 @@ const postData = async (url = '', data = {}) => {
 const updateUI = async(url='') => {
     const request = await fetch(url);
     try {
+        
         const allData = await request.json();
-        document.getElementById('date').innerHTML = `hi today is ${allData[allData.length - 1]["date"]}`;
-        document.getElementById('temp').innerHTML = `temperature today is ${allData[allData.length - 1]["temperature"]}`;
-        document.getElementById('content').innerHTML = `you are feeling  ${allData[allData.length - 1]["userResponse"]} today`;
+        document.getElementById('date').innerHTML = `hi today is ${allData["date"]}`;
+        document.getElementById('temp').innerHTML = `temperature today is ${allData["temperature"]}`;
+        document.getElementById('content').innerHTML = `you are feeling  ${allData["userResponse"]} today`;
     } catch(err) {
         console.log(err);
     };
